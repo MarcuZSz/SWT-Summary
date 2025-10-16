@@ -1,0 +1,164 @@
+\documentclass[12pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}     
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}     
+\usepackage{amsmath, amsfonts, amssymb} 
+\usepackage{graphicx}           
+\usepackage{float}              
+\usepackage{caption}  
+\usepackage{adjustbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}       
+
+\setcounter{secnumdepth}{5}     
+\setcounter{tocdepth}{5}        
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\section{Softwareprozesse}
+
+\subsection{Vorgehensmodelle}
+
+\subsubsection{Wasserfallmodell}
+
+\begin{figure}[H]
+
+\centering
+
+\begin{minipage}[t]{0.45\textwidth}
+\begin{itemize}
+\item lineares, plangetriebenes Modell mit aufeinanderbauenden Phasen
+\item typische Phasen:
+\begin{enumerate}
+\item Anforderungsanalyse
+\item System- \& Softwareentwurf
+\item Implementierung \& Modultests
+\item Integration \& Systemtest
+\item Betrieb \& Wartung
+\end{enumerate}
+\item Vorteile: klare Struktur, gut dokumentiert, geeignet für sicherheitskritische Systeme
+\item Nachteile: Änderungen sind teuer, spätes Feedback, kaum Flexibilität
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\textwidth}
+\centering
+\vspace{20mm}
+\adjustbox{valign=c}{\includegraphics[scale=0.45]{pictures/Wasserfallmodell.png}}
+\caption{Wasserfallmodell}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Inkrementelle Entwicklung}
+
+\begin{itemize}
+\item Spezifikation, Entwicklung \& Validierung laufen parallel.
+\item Software wird in aufeinander aufbauenden Inkrementen geliefert.
+\item Jedes Inkrement liefert nutzbare Funktionalität.
+\item Vorteile: Frühe Auslieferung, Kundenfeedback möglich, Anpassungen leichter
+\item Nachteile: Mögliche Systemdegradation bei vielen Versionen, Management-Komplexität
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{pictures/inkrementelleImp.png}
+\caption{Inkrementelle Entwicklung}
+\end{figure}
+
+\subsubsection{Integration \& Konfiguration}
+
+\begin{itemize}
+\item Nutzt bestehende Komponenten oder Systeme.
+\item Phasen:
+\begin{enumerate}
+\item Anforderungsspezifikation
+\item Komponenten-/Softwareerkennung \& -evaluierung
+\item Anforderungsnachbesserung
+\item Anpassen \& Integration von Komponenten
+\item Konfiguration des Anwendungssystems
+\end{enumerate}
+\item Vorteile: Schnelle Lieferung, geringere Kosten und Risiken
+\item Nachteile: Eingeschränkte Kontrolle, Kompromisse bei Anforderungen
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{pictures/integrationukonfig.png}
+\caption{Wiederverwendungsorientiertes Software-Engineering}
+\end{figure}
+
+\subsection{Prozessaktivitäten}
+
+\subsubsection{Softwarespezifikation}
+
+\begin{figure}[H]
+\begin{minipage}[t]{0.45\textwidth}
+\begin{itemize}
+\item Definition der Funktionen und Beschränkungen des Systems
+\item Ergebnis: Ein Anforderungsdokument, das zwischen Kunde und Entwickler abgestimmt wird
+\item Fehler hier sind kritisch, da sie später teuer werden
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\vspace{-15mm}
+\adjustbox{valign=c}{\includegraphics[scale=0.5]{pictures/softspezi.png}}
+\caption{Ablauf der Anforderungsanalyse}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\subsubsection{Softwareentwurf \& -implementierung}
+
+\begin{itemize}
+\item Umsetzung der spezifizierten Anforderungen in ein ausführbares System
+\item Umfasst Entwurf (Architektur, Komponenten) und Implementierung (Programmierung)
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{pictures/softent-imp.png}
+\caption{allgemeines Modell des Entwurfsprozesses}
+\end{figure}
+
+\subsubsection{Softwarevalidierung}
+\begin{itemize}
+\item Überprüfung, ob das System den Anforderungen und Benutzerbedürfnissen entspricht
+\item Aktivitäten: Reviews, Tests, Abnahmen
+\item Ziel: Qualitätssicherung und Fehlererkennung vor Auslieferung
+\end{itemize}
+
+\begin{figure}[H]
+\begin{minipage}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.6]{pictures/softvali.png}
+\caption{Testphasen}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.4]{pictures/softvali2.png}
+\caption{Testphasen in plangesteuertem Softwareprozess}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\subsubsection{Weiterentwicklung von Software}
+\begin{itemize}
+\item Anpassung bestehender Software an neue Anforderungen, Technologien oder Umgebungen
+\item Evolution kontinuierlich \& macht den Unterschied zwischen Entwicklung \& Wartung zunehmend unscharf
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{pictures/evosoft.png}
+\caption{Weiterentwicklung eines Softwaresystems}
+\end{figure}
+
+\end{document}
