@@ -10,6 +10,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}       
 
+\captionsetup[figure]{name=Abb.}
 \setcounter{secnumdepth}{5}     
 \setcounter{tocdepth}{5}        
 
@@ -117,7 +118,7 @@
 
 \begin{itemize}
 \item Umsetzung der spezifizierten Anforderungen in ein ausführbares System
-\item Umfasst Entwurf (Architektur, Komponenten) und Implementierung (Programmierung)
+\item Umfasst Entwurf (Architektur, Komponenten) \& Implementierung (Programmierung)
 \end{itemize}
 
 \begin{figure}[H]
@@ -130,7 +131,7 @@
 \begin{itemize}
 \item Überprüfung, ob das System den Anforderungen und Benutzerbedürfnissen entspricht
 \item Aktivitäten: Reviews, Tests, Abnahmen
-\item Ziel: Qualitätssicherung und Fehlererkennung vor Auslieferung
+\item Ziel: Qualitätssicherung \& Fehlererkennung vor Auslieferung
 \end{itemize}
 
 \begin{figure}[H]
@@ -160,5 +161,98 @@
 \includegraphics[scale=0.5]{pictures/evosoft.png}
 \caption{Weiterentwicklung eines Softwaresystems}
 \end{figure}
+
+\section{Clean Code}
+
+\subsection{Schlechter Code \& Folgen}
+
+\begin{itemize}
+\item entsteht durch Zeitdruck,  Nachlässigkeit oder fehlendes Verantwortungsbeswusstsein
+\item führt zu technischer Schuldenbildung, wodurch Projekte immer langsamer \& teurer werden
+\item chaotischer Code führt zu schlechter Wartung \& Gefahr Termine nicht einhalten zu können
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{pictures/ProdZeit.png}
+\caption{Relation Prduktivität \& Zeit}
+\end{figure}
+
+\subsection{Clean Code schreiben}
+
+\begin{itemize}
+\item Übung macht den Meister
+\item Gefühl für Code durch Erfahrung \& Refactoring
+\item Code sollte elegant, klar \& lesbar sein
+\end{itemize}
+
+\subsection{Was ist Clean Code?}
+
+\begin{itemize}
+\item \textbf{Bjarne Stroustrup (C++):}
+\begin{itemize}
+\item Code soll elegant, effizient, gradlinig \& wartbar sein
+\item Sorgfalt im Detail (Fehlerbehandlung, Namensgebung, minimale Abhängigkeiten)
+\item Sauberer Code erledigt eine Aufgabe gut
+\end{itemize}
+\item \textbf{Grady Booch:}
+\begin{itemize}
+\item Sauberer Code ist einfach, direkt \& liest sich wie Prosa
+\item zeigt klar die Absicht des Entwicklers
+\end{itemize}
+\item \textbf{Dave Thomas (The Pragmatic Programmer):}
+\begin{itemize}
+\item Code soll von anderen gelesen, verstanden \& verbessert werden können
+\item Unit-Tests sind unverzichtbar – Code ohne Tests ist nicht sauber
+\item Klein \&literate: Code muss für Menschen lesbar sein
+\end{itemize}
+\item \textbf{Michael Feathers:}
+\begin{itemize}
+\item Sauberer Code zeigt Mühe
+\item erkennt Sorgfalt \& Bewusstsein für Qualität
+\end{itemize}
+\item \textbf{Ron Jeffries:}
+\begin{itemize}
+\item Einfacher Code erfüllt vier Regeln:
+\begin{enumerate}
+\item Besteht alle Tests
+\item Enthält keine Duplizierungen
+\item Drückt alle Designideen klar aus
+\item Minimiert die Anzahl der Entitäten (Klassen, Methoden etc.)
+\end{enumerate}
+\end{itemize}
+\item \textbf{Ward Cunningham:}
+\begin{itemize}
+\item Sauberer Code verhält sich genau so, wie man es erwartet, ohne Überraschungen
+\item Lesbar, offensichtlich \& elegant
+\end{itemize}
+\end{itemize}
+
+\subsection{Weitere Prinzipien}
+
+\begin{itemize}
+\item \textbf{Pfadfinder-Regel:} \\
+„Hinterlasse den Code sauberer, als du ihn vorgefunden hast.“ \\
+$\rightarrow$ Kleine, kontinuierliche Verbesserungen verhindern Verfall.
+\item \textbf{Wir sind Autoren!:} \\
+Code ist eine Form von Kommunikation. \\
+$\rightarrow$ Schreibe Code für Menschen, nicht für Maschinen.
+\item \textbf{Vorläufer \& Prinzipien:} \\
+Sauberer Code folgt bekannten Designprinzipien wie
+\begin{itemize}
+\item SRP (Single Responsibility Principle)
+\item OCP (Open-Closed Principle)
+\item DIP (Dependency Inversion Principle)
+\end{itemize}
+\end{itemize}
+
+\subsection{Kerngedanke Clean Code}
+
+\begin{itemize}
+\item Sauberer Code ist leicht zu lesen, zu verstehen \& zu ändern.
+\item Er ist einfach, elegant, klar strukturiert und getestet.
+\item Klein ist besser, jede Funktion, Klasse \& Methode erfüllt eine Aufgabe.
+\item Sauberkeit entsteht durch Sorgfalt, Disziplin \& Verantwortung.
+\end{itemize}
 
 \end{document}
