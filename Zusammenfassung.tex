@@ -8,7 +8,8 @@
 \usepackage{caption}  
 \usepackage{adjustbox}
 \usepackage[hidelinks]{hyperref}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}       
+\bibliographystyle{plain}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}      
 
 \captionsetup[figure]{name=Abb.}
 \setcounter{secnumdepth}{5}     
@@ -99,7 +100,7 @@
 \begin{minipage}[t]{0.45\textwidth}
 \begin{itemize}
 \item Definition der Funktionen und Beschränkungen des Systems
-\item Ergebnis: Ein Anforderungsdokument, das zwischen Kunde und Entwickler abgestimmt wird
+\item Ergebnis: Ein Anforderungsdokument, das zwischen Kunde \& Entwickler abgestimmt wird
 \item Fehler hier sind kritisch, da sie später teuer werden
 \end{itemize}
 \end{minipage}
@@ -254,5 +255,196 @@ Sauberer Code folgt bekannten Designprinzipien wie
 \item Klein ist besser, jede Funktion, Klasse \& Methode erfüllt eine Aufgabe.
 \item Sauberkeit entsteht durch Sorgfalt, Disziplin \& Verantwortung.
 \end{itemize}
+
+\section{Projektmanagement \& -planung}
+
+\subsection{Risikomanagment}
+
+Risikomanagement ist die zentrale Aufgabe eines Softwareprojektmanagers. Es geht darum, Risiken frühzeitig zu erkennen, zu analysieren, zu planen \& zu überwachen, um Zeit- \& Qualitätsprobleme zu vermeiden. \\
+
+\begin{figure}[H]
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Arten von Risiken}
+\begin{itemize}
+\item Projektrisiken: beeinflussen Zeitplan oder Ressourcen
+\item Produktrisiken: betreffen Qualität \& Leistung der Software
+\item Geschäftsrisiken: betreffen Unternehmen selbst
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\vspace{-10mm}
+\adjustbox{valign=c}{\includegraphics[scale=0.45]{pictures/bsprisman.png}}
+\caption{Beispiele für Risiken}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.65]{pictures/ablaufrisman.png}
+\caption{Ablauf Risikomanagement}
+\end{figure}
+
+\subsubsection{Risikoerkennung}
+
+\begin{figure}[H]
+\begin{minipage}[t]{0.45\textwidth}
+\begin{itemize}
+\item identifiziert mögl. Projekt-, Produkt- \& Geschäftsrisiken
+\item durch Brainstorming, Checklists oder Erfahrung
+\item 6 Risikoarten:
+\begin{itemize}
+\item technologisch
+\item personenbezogen
+\item unternehmensbezogen
+\item Werkzeuge
+\item Anforderungen
+\item Schätzung
+\end{itemize}
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\vspace{0mm}
+\adjustbox{valign=c}{\includegraphics[scale=0.45]{pictures/bsprisarten.png}}
+\caption{Beispiele Risikoarten}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Risikoanalyse}
+
+\begin{itemize}
+\item Eintrittswahrscheinlichkeit: sehr gering - sehr hoch
+\item Auswirkung: unwesentlich, geringfügig, kritisch, katastrophal
+\end{itemize}
+
+\begin{figure}[H]
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\includegraphics[scale=0.37]{pictures/risartenubsp.png}
+\caption{Risikoarten \& Beispiele}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.45]{pictures/stratrisman.png}
+\caption{Strategien zu Risikomanagement}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Risikoplanung}
+
+\begin{itemize}
+\item Vermeidungsstrategien: Verringern der Eintrittswahrscheinlichkeit des Risikos
+\item Minimierungsstrategien: Auswirkungen des Risikos reduzieren
+\item Notfallpläne: Einstellen auf schlimmsten Fall \& Strategie zur Problemlösung am besten bereits vorhanden
+\end{itemize}
+
+\subsubsection{Risikoüberwachung}
+
+\begin{figure}[H]
+\begin{minipage}[t]{0.5\textwidth}
+\begin{itemize}
+\item kontinuierliche Überprüfung der Risiken
+\item Anpassung von Plänen bei neuen Infos
+\item iterativer Prozess während des gesamten Projekts
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\vspace{-15mm}
+\adjustbox{valign=c}{\includegraphics[scale=.45]{pictures/risindi.png}}
+\caption{Risikoindikatoren}
+\end{minipage}
+\end{figure}
+
+\subsection{Preiskalkulation Software}
+
+Der Preis eines Softwareprojekts ergibt sich nicht nur aus den reinen Entwicklungskosten plus Gewinn, sondern hängt auch von wirtschaftlichen und vertraglichen Faktoren ab. \\
+
+\noindent
+\textbf{Einflussfaktoren für Softwarepreise}
+\begin{itemize}
+\item Marktchance: niedriger Preis, um neuen Markt zu gewinnen
+\item Unsichere Kostenschätzung: Aufschlag zur Absicherung
+\item Vertragsbedingungen: dem Entwickler Rechte vom Quellcode überlassen $\rightarrow$ Kostensenkung
+\item Veränderliche Anforderungen: niedriger Einstiegspreis, bei Änderungen an Anforderungen Preiserhöhung möglich
+\item Finanzlage: in Krisen Aufträge mit geringem Gewinn als keinen
+\end{itemize}
+
+\subsection{Plangesteuerte Entwicklung}
+
+\textbf{Kernelemente:}
+\begin{itemize}
+\item frühzeitige, detaillierte Planung von Aufgaben, Ressourcen \& Zeit
+\item Projektplan zur Steuerung, Kontrolle \& Kommunikation des Fortschritts
+\item Planänderungen unvermeidlich, regelmäßiges Aktualisieren der Pläne
+\end{itemize}
+\noindent
+\textbf{Vorteile:}
+\begin{itemize}
+\item frühzeitige Berücksichtigung von Ressourcen, Abhängigkeiten \& Risiken
+\item klare Verantwortlichkeiten \& Messbarkeit des Fortschritts
+\end{itemize}\noindent
+\textbf{Nachteile:}
+\begin{itemize}
+\item Geringe Flexibilität bei sich ändernden Anforderungen
+\item Gefahr übermäßiger Bürokratie
+\end{itemize}
+\noindent
+große sicherheitskritische Systeme $\Rightarrow$ planbasiert \\
+kleine dynamische Projekte $\Rightarrow$ agil
+
+\subsubsection{Projektpläne}
+
+\textbf{vollständiger Projektplan:}
+\begin{enumerate}
+\item Einleitung: Projektziele, Rahmenbedingungen (Budget, Zeit)
+\item Projektorganisation: Teamstruktur \& Rollen
+\item Risikoanalyse: potenzielle Risiken \& Gegenmaßnahmen
+\item Hardware-/Softwareanforderungen: benötigte Ressourcen
+\item Arbeitsaufteilung: Beschreibung der Aktivitäten, Eingaben \& Ergebnisse
+\item Projektzeitplan: Abhängigkeiten, Meilensteine \& Personalzuordnung
+\item Überwachung/Berichte: welche Berichte Management erstellt, wann erstellt \& was für Überwachungsmechanismen verwendet werden sollen
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/zupro.png}
+\caption{Zusätzliche Projektpläne}
+\end{figure}
+
+\subsubsection{Planungsprozess}
+
+\textbf{Schritte vom Planungsprozess(iterativ):}
+\begin{enumerate}
+\item Rahmenbedingungen festlegen (Budget, Tools, Termine)
+\item Meilensteine \& Lieferobjekte bestimmen
+\item Zeitplan entwerfen \& Aktivitäten starten
+\item Fortschritt regelmäßig prüfen \& mit Plan abgleichen
+\item Abweichungen analysieren \& Plan anpassen
+\item bei gravierenden Problemen: Neuplanung, ggf. Neuverhandlung mit dem Kunden oder Projektabbruch
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/Projektplanungsprozess.png}
+\caption{Projektplanungsprozess}
+\end{figure}
+
+\textbf{Wichtige Prinzipien}
+\begin{itemize}
+\item Realistische, nicht zu optimistische Annahmen
+\item Zeitpuffer für unvorhergesehene Probleme
+\item Iterative Überprüfung \& Anpassung
+\item Dokumentation \& Kommunikation mit Stakeholdern
+\end{itemize}
+
+\newpage
+\bibliography{sources}
+\nocite{*}
 
 \end{document}
