@@ -1,9 +1,12 @@
-\documentclass[12pt,a4paper,oneside]{article}
+\documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{inputenc}     
 \usepackage[T1]{fontenc}
-\usepackage[ngerman]{babel}     
-\usepackage{amsmath, amsfonts, amssymb} 
-\usepackage{graphicx}           
+\usepackage[german]{babel}     
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lmodern}          
 \usepackage{float}              
 \usepackage{caption}  
 \usepackage{adjustbox}
@@ -163,7 +166,7 @@
 \caption{Weiterentwicklung eines Softwaresystems}
 \end{figure}
 
-\section{Clean Code}
+\section{Clean Code I}
 
 \subsection{Schlechter Code \& Folgen}
 
@@ -441,6 +444,115 @@ kleine dynamische Projekte $\Rightarrow$ agil
 \item Zeitpuffer für unvorhergesehene Probleme
 \item Iterative Überprüfung \& Anpassung
 \item Dokumentation \& Kommunikation mit Stakeholdern
+\end{itemize}
+
+\section{Clean Code II}
+
+\subsection{Funktionen}
+
+\subsubsection{Größe \& Abstraktion}
+
+\begin{itemize}
+\item Funktionen sollen klein sein: wenige Zeilen, einheitlich eingerückt, gut lesbar
+\item 1 Funktion = 1 Aufgabe: keine Mischung versch. Verantwortlichkeiten
+\item 1 Abstraktionsebene pro Funktion: High-Level-Logik nicht mit Implementierungsdetails mischen
+\item Code \glqq top down\grqq ~wie Geschichte lesbar
+\end{itemize}
+
+\subsubsection{Struktur \& Parameter}
+
+\begin{itemize}
+\item Switch-Anweisungen durch Polymorhpie/Vererbung ersetzen
+\item für Leser verständliche Namen
+\item wenige Parameter
+\begin{itemize}
+\item 1 ideal, 2 okay, 3 grenzwertig,  >3 schlecht
+\item Flag vermeiden
+\item wenn nötig Parameterobjekte nutzen
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Verhalten}
+
+\begin{itemize}
+\item keine Nebeneffekte
+\item Anweisung \& Abfrage trennen
+\item Exceptions statt Fehlercodes
+\end{itemize}
+
+\subsubsection{Saubere Umsetzung}
+
+\begin{itemize}
+\item \glqq Don't Repeat Yourself\grqq ~ (DRY-Prinzip)
+\item nur 1 Eingangs- \& Ausgangspunkt pro Funktion
+\item gute Funktionen durch Refactoring: zuerst funktional, dann aufräumen
+\end{itemize}
+
+\subsection{Objektet \& Strukturen}
+
+\subsubsection{Datenabstraktion}
+
+\begin{itemize}
+\item Daten nicht über Getter/Setter direkt exponieren
+\item lieber über Interfaces Verhalten, aber nicht Struktur, offenlegen
+\end{itemize}
+
+\subsubsection{Daten-/Objekte-Antisymmetrie}
+
+\begin{itemize}
+\item Objekte verbergen Daten, offenbaren Verhalten
+\item Datenstrukturen enthüllen Daten, kein Verhalten
+\item Objekte erleichtern Hinzufügen neuer Datentypen
+\item Datenstrukturen erleichtern Hinzufügen neuer Funktionen
+\end{itemize}
+
+\subsubsection{Law of Demeter (LoD)}
+
+\begin{itemize}
+\item \glqq Mit Freunden, aber nicht mit Fremden sprechen!\grqq
+\item keine lange Zugriffsketten (come().kneel().UsoDumb())
+\item Lösung: sag was Objekt tun soll, nicht wie
+\end{itemize}
+
+\subsubsection{Datentransferobjekt (DTO)}
+
+\begin{itemize}
+\item einfacher Datencontainer (Felder, keine Logik)
+\item Kommunikation zw. Systemschichten oder externes System
+\item Active Records: Datenstruktur mit öffentlichen Variablen \\
+$\rightarrow$ kein Stuff einfügen, dass es zu einem Objekt wird
+\end{itemize}
+
+\subsection{Klassen}
+
+\subsubsection{Klassenaufbau}
+
+\begin{itemize}
+\item Klassen sollten beginnen mit:
+\begin{enumerate}
+\item public static Konstanten
+\item private static Variablen
+\item private Instanzvariablen
+\item öffentliche Methoden, dann private Helfer
+\end{enumerate}
+\item alles möglichst privat, Tests über protected
+\item public Variablen fast nie nötig
+\end{itemize}
+
+\subsubsection{Klassen sollten klein sein!}
+
+\begin{itemize}
+\item Kleinheit = wenige Verantwortlichkeiten
+\item Faustregel: nur ein Grund zur Änderung $\rightarrow$ Single-Responsibility-Prinzip (SRP)
+\item hohe Kohäsion: alle Methoden der Klasse dienen demselben Zweck
+\item Gute Kohäsion führt zu vielen kleinen Klassen
+\end{itemize}
+
+\subsubsection{Änderungen planen}
+
+\begin{itemize}
+\item Änderungen isolieren: Strukturen so gestalten, dass Änderungen in einer Klasse nicht kaskadieren
+\item Abhängigkeiten durch Interfaces oder Komposition minimieren
 \end{itemize}
 
 \newpage
