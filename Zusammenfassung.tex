@@ -446,6 +446,37 @@ kleine dynamische Projekte $\Rightarrow$ agil
 \item Dokumentation \& Kommunikation mit Stakeholdern
 \end{itemize}
 
+\subsection{Netzplan}
+
+\begin{itemize}
+\item obere Zeile: frühestmögliche Zeitpunkte, von vorne nach hinten
+\item linke Spalte: Start, Mitte: benötigte Zeit (oben)/Puffer (unten), rechte Spalte: Ende
+\item untere Zeile: spätestmögliche Zeitpunkte, von hinten nach vorne
+\item jeweils höhere Zeit als nächsten Startwert/Endwert nehmen
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.7]{pictures/netzplan.png}
+\caption{Aufgabe 1 aus Übungsblatt 4}
+\end{figure}
+
+\newpage
+
+\subsection{Gantt-Charts}
+
+\begin{itemize}
+\item prüfe Abhängigkeiten
+\item voneinander unabhängige Aufgaben können gleichzeitig starten
+\item kritische Pfade: umfasst Arbeitspakete, deren Dauer den Projektendtermin bestimmt; jede Verzögerung in einem dieser Pakete verlängert die gesamte Projektdauer
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/gantt.png}
+\caption{Aufgabe 2 aus Übungsblatt 4}
+\end{figure}
+
 \section{Clean Code II}
 
 \subsection{Funktionen}
@@ -488,7 +519,7 @@ kleine dynamische Projekte $\Rightarrow$ agil
 \item gute Funktionen durch Refactoring: zuerst funktional, dann aufräumen
 \end{itemize}
 
-\subsection{Objektet \& Strukturen}
+\subsection{Objekte \& Strukturen}
 
 \subsubsection{Datenabstraktion}
 
@@ -554,6 +585,141 @@ $\rightarrow$ kein Stuff einfügen, dass es zu einem Objekt wird
 \item Änderungen isolieren: Strukturen so gestalten, dass Änderungen in einer Klasse nicht kaskadieren
 \item Abhängigkeiten durch Interfaces oder Komposition minimieren
 \end{itemize}
+
+\section{Software Engineering}
+
+\subsection{Agile Methoden}
+
+Agile Methoden funktionieren gut für kleine, zusammenarbeitende Teams, die nicht stark abhängig von anderen Systemen oder Abteilungen sind. Beispiele sind Scrum, Extreme Programming (XP) \& DSDM. 
+
+\begin{figure}[H]
+\begin{minipage}[t]{.45\textwidth}
+\textbf{Agiles Manifest} \\
+Bevorzugt werden:
+\begin{itemize}
+\item Individuen \& Interaktionen über Prozesse \& Werkzeuge
+\item Funktionierend Software über Dokumentation
+\item Zusammenarbeit mit dem Kunden über Vertragsverhandlungen
+\item Reaktion auf Veränderung über strikte Planverfolgung
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.45\textwidth}
+\centering
+\vspace{-5mm}
+\includegraphics[scale=.35]{pictures/agilemeth.png}
+\caption{Gemeinsame Prinzipien agiler Methoden}
+\end{minipage}
+\end{figure}
+
+\subsection{Techniken der agilen Entwicklung}
+
+Prägendstes agiles Modell ist Extreme Programming (XP), wo Praktiken extrem umgesetzt werden, z.B. sehr häufige Releases oder intensives Testen.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/xprelease.png}
+\caption{XP-Releasezyklus}
+\begin{minipage}[t]{.45\textwidth}
+\centering
+\includegraphics[scale=.31]{pictures/xp1.png}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.5\textwidth}
+\centering
+\includegraphics[scale=.37]{pictures/xp2.png}
+\end{minipage}
+\caption{Prinzipien \& Verfahren des XP}
+\end{figure}
+
+\subsubsection{User-Storys}
+
+\begin{itemize}
+\item Anfoderungen wernden nicht als langes Dokument beschrieben, sondern als kurze Nutzerszenarien (\glqq User-Storys\grqq)
+\item Werden auf Story-Cards festgehalten \& später in Tasks heruntergebrochen
+\item Kunde priorisiert Stories \& entscheidet, welche in nächsten Release gelangen
+\item Problem: Vollständigkeit der Stories schwer zu überprüfen
+\end{itemize}
+
+\subsubsection{Refactoring}
+
+\begin{itemize}
+\item statt zukünfige Änderungen vordenken, Code laufend verbessern
+\item Ziel: Vermeidung von Code-Verfall (duplicated code, schlechte Struktur)
+\item Bsp.: Umbenennungen, Vereinfachungen, Entfernen von Duplikaten
+\item Risiko: Zeitdruck kann dazu führen, dass Refactoring zu spät stattfindet
+\end{itemize}
+
+\newpage
+
+\subsubsection{Test-First-Entwicklung}
+
+\begin{itemize}
+\item Tests vor Code geschrieben
+\item Vorteile:
+\begin{itemize}
+\item Anforderungen müssen klar sein
+\item Probleme werden früh erkannt
+\item vermeidet Testverzug
+\end{itemize}
+\item Tests auf Basis der Tasks aus den User-Storys
+\item automatisierte Tests (z.B. JUnit) essentiell
+\item Probleme:
+\begin{itemize}
+\item Entwickler schreiben ungerne Tests $\rightarrow$ Risiko unvollständiger Testabdeckung
+\item UI-Tests schwer automatisierbar
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Pair Programming}
+
+\begin{itemize}
+\item 2 Entwickler an einem Arbeitsplatz
+\item Vorteile:
+\begin{enumerate}
+\item höhere Codequality durch unmittelbare Kontrolle
+\item Wissen wird geteilt
+\item fördert Refactoring \& Verantwortungsbewusstsein
+\end{enumerate}
+\item Nachteile:
+\begin{enumerate}
+\item geringere Produktivität bei erfahrenen Entwicklern (zeigen Studien)
+\item Unternehmen nutzt Pair Programming daher punktuell
+\end{enumerate}
+\end{itemize}
+
+\subsection{Agiles Projektmanagement}
+
+Scrum bietet einen organisatorischen Rahmen für agile Projekte, ohne zwingend XP-Praktiken zu verlangen. Scrum unterstützt Transparenz, schnelle Rückmeldung \& kontinuierliche Verbesserung. Herausforderungen sind v. a. verteilte Teams, weshalb Varianten wie Distributed Scrum existieren.\\
+\\
+\textbf{Zentrale Elemente von Scrum}
+
+\begin{itemize}
+\item \textbf{Product Owner:} priorisiert Anfoderungen im Product Backlog
+\item \textbf{Developemnet Team:} max. 7 Personen, selbstorganisiert
+\item \textbf{ScrumMaster:} achtet auf Einhaltung von Scrum, schützt Team
+\item \textbf{Sprint:} Iteration von 2 bis 4 Wochen
+\item \textbf{Daily Scrum:} kurzes tägliches Meeting
+\item \textbf{Sprint Review:} Bewertung des erzielten Inkrements \& Prozessverbesserung
+\item \textbf{Velocity:} Maß für Teamleistung zur Planung kommender Sprints
+\item \textbf{Product Backlog:} TO-DO-List zum abarbeiten
+\item \textbf{Potentially Shippable Product Increment:} potenziell auslieferbar, eig keine weiteren Tests nötig, Zeit zur Integration ins finale Produkt \\
+$\Rightarrow$ nicht immer möglich
+\end{itemize}
+
+\begin{figure}[H]
+\begin{minipage}[t]{.45\textwidth}
+\centering
+\includegraphics[scale=.4]{pictures/sprintzyklus.png}
+\caption{Sprint-Zyklus von Scrum}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.45\textwidth}
+\centering
+\includegraphics[scale=.3]{pictures/disscrum.png}
+\caption{Distributed Scrum}
+\end{minipage}
+\end{figure}
 
 \newpage
 \bibliography{sources}
