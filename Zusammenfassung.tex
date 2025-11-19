@@ -721,6 +721,183 @@ $\Rightarrow$ nicht immer möglich
 \end{minipage}
 \end{figure}
 
+\section{Was ist KANBAN?}
+
+Kanban ist eine Methode, um Services für Wissensarbeit sichtbar zu machen, zu managen und zu verbessern. Sie basiert darauf, mit dem zu starten, was bereits existiert, und Veränderung evolutionär vorzunehmen. \\
+Zentral ist die Visualisierung von Arbeit und die Begrenzung paralleler Arbeit (WIP) durch ein Kanban-System, wodurch ein Pull-System entsteht: Neue Arbeit wird erst begonnen, wenn Kapazität frei wird. \\
+Der Fokus liegt auf der Serviceerbringung – Arbeit fließt von der Anfrage über mehrere Prozessschritte bis zur Lieferung.
+
+\subsection{KANBAN-Werte}
+
+\begin{itemize}
+\item Transparenz: offener Informationsaustausch, klares Vokabular
+\item Balance: nachhaltiges Ausbalancieren von Fähigkeiten, Nachfrage \& Prioritäten
+\item Kollaboration: gemeinsame Problemlösung
+\item Kundenfokus: Arbeit muss Wert für den Kunden erzeugen
+\item Arbeitsfluss: Arbeit bewegt sich kontinuierlich durch den Prozess
+\item Führung: jeder kann verbessern \& Verantwortung übernehmen
+\item Verständnis: Selbsterkenntnis über Stärken/Schwächen von Team/Organisation
+\item Vereinbarung: gemeinsames Commitment zu Zielen \& Verbesserungen
+\item Respekt: Grundwert, Basis für alle anderen
+\end{itemize}
+
+\subsection{Die KANBAN-Agenden}
+
+\textbf{Nachhaltigkeit}
+\begin{itemize}
+\item Ziel: Überlastung reduzieren, Arbeitskapazität \& Nachfrage ausbalancieren
+\item führt zu besserer Qualität, Zufriedenheit, Tempo \& Zusammenarbeit
+\end{itemize}
+\noindent
+\textbf{Serviceorientierung}
+\begin{itemize}
+\item Fokus auf wertorientierte Services für Kunden
+\item Ziel: Lieferungen passend zum Zweck (\glqq fit for purpose\grqq)
+\item Kundenbedürfnisse im Zentrum aller Entscheidungen
+\end{itemize}
+\noindent
+\textbf{Überlebensfähigkeit}
+\begin{itemize}
+\item Ziel: Organisation anpassungsfähig \& konkurrenzfähig halten
+\item evolutionäre Veränderung als Antwort auf Marktveränderungen \& Disruption
+\item Förderung von Experimenten, kontinuierlichem Lernen, Vielfalt \& Resilienz
+\end{itemize}
+
+\subsection{Grundprinzipien von KANBAN}
+
+\subsubsection{Charge-Management-System}
+
+\begin{itemize}
+\item Beginne mit dem, was du gerade tust: existierende Rollen, Prozesse, Titel respektieren
+\item Evolutionäre Veränderung vereinbaren: kleine, risikoarme Schritte
+\item Führung auf allen Ebenen fördern: jeder trägt zur Verbesserung bei
+\end{itemize}
+
+\subsubsection{Service-Delivery-Prinzipien}
+
+\begin{itemize}
+\item Kundenbedürfnisse verstehen \& fokussieren
+\item Arbeit managen, Menschen sich selbst organisieren lassen
+\item Regeln entwickeln, um bessere Ergebnisse zu liefern
+\end{itemize}
+
+\subsection{Beschreibung von Arbeitsflusssystemen}
+
+\begin{itemize}
+\item beschreibt ein System aus Arbeitseinheiten, die durch Prozessschritte fließen
+\item notwendige Elemente:
+\begin{itemize}
+\item Commitment Point (Zusage)
+\item Delivery Point (Fertige Lieferung)
+\item WIP-Limits (Work in Progress)
+\end{itemize}
+\item zentrale Metriken:
+\begin{itemize}
+\item Durchlaufzeit (Commitment → Lieferung)
+\item Lieferrate/Durchsatz
+\item WIP (parallele Arbeit)
+\end{itemize}
+\item \textbf{Little's Law:}
+\begin{itemize}
+\item $\bar{\text{Lieferrate}} = \frac{\bar{\text{WIP}}}{\bar{\text{Durchlaufzeit}}}$
+\item alternativ: $\bar{\text{Durchsatz}} = \frac{\bar{\text{WIP}}}{\bar{\text{TIP}}}$
+\item Kernbotschaft: weniger WIP $\Rightarrow$ schnellerer Flow
+\end{itemize}
+\item Unterscheidung zw. Systemdurchlaufzeit \& Kundendurchlaufzeit
+\item macht Engpässe, Blocken \& Variabilität sichtbar
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.65]{pictures/kanbancfd.png}
+\caption{kumulatives Flussdiagramm, womit man durch Division die Lieferrate berechnen kann}
+\end{figure}
+
+\subsection{Kernpraktiken von KANBAN}
+
+\begin{enumerate}
+\item \textbf{Visulisiere}
+\begin{figure}[H]
+\begin{minipage}[t]{.45\textwidth}
+\begin{itemize}
+\item Darstellung von Arbeit, Prozessschritten \& Regeln (z. B. Kanban-Board)
+\item Boards variieren stark; physisch oder digital
+\item Wichtige Visualisierung: Blocker, Abhängigkeiten, Status
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.45\textwidth}
+\centering
+\vspace{-10mm}
+\includegraphics[scale=.3]{pictures/kanbanraum.png}
+\caption{Visualierung an Boards}
+\end{minipage}
+\end{figure}
+\item \textbf{Limitiere parallele Arbeit (WIP)}
+\begin{itemize}
+\item Reduzierung teilfertiger Arbeit
+\item Bessere Durchlaufzeiten, Qualität, Vorhersagbarkeit
+\item Schafft Fokus und verhindert Überlastung
+\item Macht Engpässe sichtbar
+\end{itemize}
+\item \textbf{Manage den Arbeitsfluss}
+\begin{itemize}
+\item Ziel: gleichmäßiger, schneller, vorhersehbarer Flow
+\item Engpässe identifizieren und steuern
+\item Fokus auf Kosten der Verzögerung (Cost of Delay)
+\item Nutzung verschiedener Serviceklassen
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.7]{pictures/verzugkosten.png}
+\caption{Verzögerungskostenprofile}
+\end{figure}
+\end{itemize}
+\item \textbf{Mache Prozessregeln explizit}
+\begin{itemize}
+\item Klare Regeln für Workflow, Definition of Done, Replenishment, Serviceklassen usw
+\item Regeln sichtbar, einfach, gemeinsam anpassbar
+\item Grundlage für sinnvolle Experimente
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.7]{pictures/prozessregeln.png}
+\caption{Prozessregeln für unterschiedliche Arbeitsschritte}
+\end{figure}
+\end{itemize}
+\newpage
+\item \textbf{Implementiere Rückkoplpungsschleifen}
+\begin{figure}[H]
+\begin{minipage}[t]{.45\textwidth}
+\begin{itemize}
+\item Nutzung regelmäßiger Kadenzen/Meetings für:
+\begin{itemize}
+\item Strategie: Festlegen anzubietender Services
+\item Operations: Balance zw. Service \& Kundenerwartung
+\item Risiko
+\item Service Delivery: Überprüfung \& Verbesserung
+\item Replenishment
+\item tägliches Kanban-Meeting
+\item Delivery-Planung: Überwachung \& Planung der Auslieferung
+\end{itemize}
+\item Feedback ermöglicht Anpassung \& Verbesserung
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.45\textwidth}
+\centering
+\vspace{5mm}
+\includegraphics[scale=.3]{pictures/sk.png}
+\caption{Satz von Kadenzen zeigt Rückkopplungsschleifen}
+\end{minipage}
+\end{figure}
+\item \textbf{Verbessere gemeinsam \& entwickle experimentell weiter}
+\begin{itemize}
+\item kontinuierliche, evolutionäre Veränderung
+\item Experimente \& Hypothesen testen (wissenschaftliche Methode)
+\item Positive Veränderungen verstärken, negative zurücknehmen
+\item Auf Veränderung im Umfeld reagieren (Fit-for-Purpose)
+\end{itemize}
+\end{enumerate}
+
 \newpage
 \bibliography{sources}
 \nocite{*}
