@@ -11,8 +11,30 @@
 \usepackage{caption}  
 \usepackage{adjustbox}
 \usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
 \bibliographystyle{plain}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}      
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}  
+
+\lstset{
+  language=bash,
+  basicstyle=\ttfamily\small,
+  commentstyle=\color{gray},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  extendedchars=true,
+  literate=
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {ü}{{\"u}}1
+    {Ä}{{\"A}}1
+    {Ö}{{\"O}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ã}{{\~a}}1
+    {é}{{\'e}}1
+} 
 
 \captionsetup[figure]{name=Abb.}
 \setcounter{secnumdepth}{5}     
@@ -897,6 +919,77 @@ Der Fokus liegt auf der Serviceerbringung – Arbeit fließt von der Anfrage üb
 \item Auf Veränderung im Umfeld reagieren (Fit-for-Purpose)
 \end{itemize}
 \end{enumerate}
+
+\section{Versionskontrolle für Dumme}
+
+\subsection{Was ist Git?}
+
+\textbf{Die wichtigsten Git-Konzepte}
+\begin{itemize}
+\item Repository (Repo): Projektordner mit Code, Historie \& Konfiguration
+\item Commit: Eine gespeicherte Änderung am Projekt (mit Nachricht)
+\item Branch: Eine parallele Entwicklungslinie, z. B. main, dev, feature/login
+\item Merge: Änderungen eines Branches in einen anderen integrieren
+\item Remote: Online-Version eines Repos, z. B. auf GitLab
+\item Clone \& Pull: Repo herunterladen bzw. aktualisieren
+\item Push: Lokale Änderungen ins Remote hochladen
+\end{itemize}
+
+\subsection{Git-CLI (Command Line Interface)}
+
+\begin{lstlisting}[language=bash]
+# lokales Git-Repo im Ordner
+git init
+
+# Zeigt alle Änderungen (tracked/untracked)
+git status
+
+# Änderungen zum Staging hinzufügen
+git add <datei>
+# oder alles
+git add .
+
+# Commit erstellen
+git commit -m "..."
+# ausführlicherer Commit
+git commit
+
+# neuen Branch erstellen
+git branch feature-login
+
+# zum Branch wechseln
+git checkout feature-login
+
+# Branch erstellen & wechseln
+git checkout -b feature-login
+
+# Branches mergen, lieber mit GitHub oder GitLab
+git checkout main
+git merge feature-login
+
+# Remote Repo
+git clone https://gitlab.com/user/repo.git
+git remote add origin https://gitlab.com/user/repo.git
+
+# Änderungen hochladen
+git push -u origin main
+
+# aktuelle Daten runterladen
+git pull
+\end{lstlisting}
+
+\subsection{GitLab Überblick}
+
+\textbf{Wichtige GitLab-Funktionen}
+\begin{itemize}
+\item Remote-Repository: Gemeinsame Online-Version des Projekts
+\item Issues: Aufgaben, Tickets, Bug-Tracking
+\item Merge Requests (MRs): Code-Änderungen prüfen \& freigeben (Code Reviews)
+\item CI/CD Pipelines: Automatische Tests, Builds und Deployments
+\item Wikis \& Dokumentation: Projektdokumentation im Repo
+\item Access Control / Permissions: Rollen wie Developer, Maintainer
+\item Projektgruppen \& Visibility Settings: Organisation von Teams \& Rechten
+\end{itemize}
 
 \newpage
 \bibliography{sources}
