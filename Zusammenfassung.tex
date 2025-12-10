@@ -821,8 +821,8 @@ Der Fokus liegt auf der Serviceerbringung – Arbeit fließt von der Anfrage üb
 \end{itemize}
 \item \textbf{Little's Law:}
 \begin{itemize}
-\item $\bar{\text{Lieferrate}} = \frac{\bar{\text{WIP}}}{\bar{\text{Durchlaufzeit}}}$
-\item alternativ: $\bar{\text{Durchsatz}} = \frac{\bar{\text{WIP}}}{\bar{\text{TIP}}}$
+\item $\overline{\text{Lieferrate}} = \frac{\overline{\text{WIP}}}{\overline{\text{Durchlaufzeit}}}$
+\item alternativ: $\overline{\text{Durchsatz}} = \frac{\overline{\text{WIP}}}{\overline{\text{TIP}}}$
 \item Kernbotschaft: weniger WIP $\Rightarrow$ schnellerer Flow
 \end{itemize}
 \item Unterscheidung zw. Systemdurchlaufzeit \& Kundendurchlaufzeit
@@ -1083,6 +1083,185 @@ Kommunikation ist ein kritischer Erfolgsfaktor.
 \item klar definierte Kommunikationswege
 \item vollständige Information für alle Teammitglieder
 \item offener Austausch zwischen Team, Management \& Stakeholdern
+\end{itemize}
+
+\section{Requirements-Engineering}
+
+\subsection{Funktionale \& nichtfunktionale Anforderungen}
+
+\subsubsection{Funktionale Anforderungen}
+
+\textbf{Beschreiben was das System tun soll:}
+\begin{itemize}
+\item Reaktion auf Eingaben
+\item Verhalten in bestimmten Situationen
+\item eventuell auch, was das System nicht tun soll
+\item reichen von allgemeinen bis zu sehr detaillierten technischen Anforderungen
+\item müssen vollständig \& konsistent sein, in der Praxis aber aufgrund vieler Stakeholder häufig nicht voll erreichbar
+\end{itemize}
+
+\noindent
+\textbf{Beispiele (Mentcare-System):}
+\begin{itemize}
+\item Listen von Terminen durchsuchen
+\item Tageslisten erzeugen
+\item Eindeutige Identifikation der Mitarbeiter
+\end{itemize}
+
+\noindent
+\textbf{Probleme:}
+\begin{itemize}
+\item Mehrdeutigkeit $\rightarrow$ führt zu Fehlinterpretationen
+\item Domänenwissen kann fehlen (fachliche Anforderungen)
+\end{itemize}
+
+\subsubsection{Nichtfunktionale Anforderungen}
+
+Beschreiben wie gut oder unter welchen Randbedingungen das System funktionieren soll.
+
+\begin{figure}[H]
+\begin{minipage}[t]{.45\textwidth}
+\textbf{Arten nach Abb. 31:}
+\begin{enumerate}
+\item Produktanforderungen \\
+(z. B. Performance, Zuverlässigkeit, Sicherheit)
+\item Unternehmensanforderungen \\
+(technische Standards, Entwicklungsprozesse)
+\item Externe Anforderungen \\
+(Gesetze, Normen, regulatorische Vorgaben)
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.5\textwidth}
+\centering
+\vspace{-5mm}
+\includegraphics[width=\linewidth]{pictures/netfunc.png}
+\caption{Arten nichtfunktionaler Anforderungen}
+\end{minipage}
+\end{figure}
+
+\noindent
+\textbf{Beispiele (Mentcare):}
+\begin{itemize}
+\item Systemverfügbarkeit während Arbeitszeiten (Produktanforderung)
+\item Authentifizierung über Mitarbeiterausweise (Unternehmensanforderung)
+\item Einhaltung nationaler Datenschutzstandards (externe Anforderungen)
+\end{itemize}
+
+\newpage
+\noindent
+\textbf{Typisches Problem} \\
+Kunden formulieren oft nur vage Ziele („einfach zu bedienen“). \\
+$\rightarrow$ müssen in testbare Metriken überführt werden, z. B.:
+\begin{itemize}
+\item Anzahl der Nutzerfehler pro Stunde
+\item Antwortzeiten
+\item Verfügbarkeit in Sekunden pro Tag
+\end{itemize}
+\noindent
+Nichtfunktionale Anforderungen sind häufig kritischer als funktionale, wenn sie verletzt werden, kann das System unbrauchbar werden.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/metriknetfunc.png}
+\caption{Metriken zur Festlegung nichtfunktionaler Anforderungen}
+\end{figure}
+
+\subsection{Prozesse des Requirements-Engineering}
+
+\begin{figure}[H]
+\begin{minipage}[t]{.45\textwidth}
+\vspace{-50mm}
+Das RE gliedert sich in drei Hauptaktivitäten:
+\begin{enumerate}
+\item Erhebung und Analyse
+\item Spezifikation
+\item Validierung
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.5\textwidth}
+\centering
+\includegraphics[width=\linewidth]{pictures/spiralrep.png}
+\caption{Spiralmodell des Requirements-Engineering-Prozesses}
+\end{minipage}
+\end{figure}
+\noindent
+Diese Prozesse sind iterativ, nicht strikt linear. Abb. 33 zeigt ein Spiralmodell, bei dem Anforderungen schrittweise verfeinert werden. In frühen Iterationen: Fokus auf Geschäftsziele \& nichtfunktionale Anforderungen, später: detaillierte Systemanforderungen. \\
+\textbf{Wichtig: Anforderungen ändern sich im Projektverlauf $\rightarrow$ Anforderungsmanagement notwendig}
+
+\subsection{Anforderungserhebung \& -analyse}
+
+Ziel: Verstehen, wie Stakeholder arbeiten und wie ein System diese Arbeit unterstützen soll.
+\\
+\noindent
+\textbf{Herausforderungen:}
+\begin{enumerate}
+\item Stakeholder wissen oft nicht klar, was sie wollen
+\item Sie verwenden domänenspezifischen Jargon
+\item Unterschiedliche Stakeholder haben widersprüchliche Anforderungen
+\item Politische Interessen beeinflussen Anforderungen
+\item Geschäftsprozesse ändern sich während der Analyse
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/ablauf.png}
+\caption{Prozess der Anforderungserhebung \& -analyse}
+\end{figure}
+\noindent
+Dieser Prozess läuft wiederholt ab, bis die Gesamtspezifikation ausreichend stabil ist.
+\\
+\\
+\textbf{Viewpoints}\\
+Gruppierung der Anforderungen nach Stakeholder-Perspektiven, um Komplexität zu reduzieren.
+
+\subsubsection{Techniken der Anforderungserhebung}
+
+\begin{enumerate}
+\item \textbf{Interview}
+\begin{itemize}
+\item häufigste Methode
+\item offen, geschlossen oder gemischt
+\item gut, um Probleme und Arbeitsweisen zu verstehen
+\item aber: Gefahr von Missverständnissen, implizitem Wissen, politischem Schweigen
+\item Tipps: keine vorgefassten Meinungen \&
+konkrete Einstiegsfragen statt „Was wünschen Sie sich?“
+\end{itemize}
+\newpage
+\item \textbf{Beobachtung/Ethnografie}
+\begin{itemize}
+\item Analyse der tatsächlichen Arbeitspraktiken
+\item deckt implizite Anforderungen \& soziale/organisatorische Faktoren auf
+\item besonders nützlich für kooperative Arbeitssituationen
+\item kombiniert gut mit Prototyping
+\end{itemize}
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.7]{pictures/techanf.png}
+\caption{Ethnografie \& Herstellung von Prototypen für die Anforderungsanalyse}
+\end{figure}
+
+\subsubsection{User-Storys \& Szenarios}
+
+Beide dienen dazu, Anforderungen anhand von konkreten Beispielen zu erfassen.
+\\
+\\
+\textbf{User-Storys}
+\begin{itemize}
+\item narrativ, abstrakt, leicht verständlich
+\item gut für frühe Diskussionen \\
+Bsp: Story zum iLearn-System (Foto-Sharing im Unterricht)
+\end{itemize}
+\noindent
+\textbf{Szenarios}
+\begin{itemize}
+\item detaillierter und strukturierter
+\item beschreiben konkreten Ablauf inkl. Eingaben, Ausnahmen, paralleler Prozesse
+\item Ausgangspunkt zur Herleitung präziser Anforderungen \\
+Bsp: Szenario zum Hochladen und Moderieren von Fotos
 \end{itemize}
 
 \newpage
