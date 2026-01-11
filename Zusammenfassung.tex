@@ -1306,6 +1306,156 @@ Bsp: Szenario zum Hochladen und Moderieren von Fotos
 \caption{Beispiel Klassendiagramm}
 \end{figure}
 
+\section{Software-Architektur}
+
+\subsection{Architektonische Entwurfsentscheidungen}
+
+\textbf{erfüllt funktionale \& nichtfunktionale Systemanforderungen}
+
+\begin{enumerate}
+\item kein fester Prozess, sondern Reihe zentraler Entscheidungen
+\begin{itemize}
+\item Wahl einer geeigneten Anwendungs- oder Referenzarchitektur
+\item Entscheidung über Verteilung (zentral vs. verteilt)
+\item Auswahl eines Architekturmusters (z. B. Schichten, Client-Server)
+\item Zerlegung des Systems in Komponenten \& Subkomponenten
+\item Steuerungsmodell (z. B. ereignis- oder aufrufgesteuert)
+\item Berücksichtigung nichtfunktionaler Anforderungen
+\end{itemize}
+\item nichfunktionale Anforderungen mit großem Einfluss
+\begin{itemize}
+\item Performance: wenige, größere Komponenten
+\item Sicherheit: Schichtenarchitektur
+\item Zuverlässigkeit \& Verfügbarkeit: Redundanz
+\item Wartbarkeit: kleine, unabhängige Komponenten
+\end{itemize}
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/entarch.png}
+\caption{Entwurfsentscheidungen zur Architektur}
+\end{figure}
+
+\subsection{Architektursichten}
+
+\begin{figure}[H]
+\begin{minipage}[t]{.6\textwidth}
+\textbf{nach dem 4+1-Sichtenmodel von Kruchten}
+\begin{itemize}
+\item Logische Sicht: zentrale Abstraktionen \& Klassen
+\item Prozesssicht: Laufzeitprozesse \& Interaktion
+\item Entwicklungssicht: Struktur für Entwicklerteams
+\item Physische Sicht: Hardware \& Verteilung
+\item Szenarien zur Verbindung der Sichten
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.35\textwidth}
+\centering
+\vspace{-10mm}
+\includegraphics[scale=.4]{pictures/archsicht.png}
+\caption{Architektursichten}
+\end{minipage}
+\end{figure}
+
+\subsection{Architekturmuster}
+
+\textbf{MVC (Model-View-Controller)}
+
+\begin{itemize}
+\item beschreibt Struktur eines Systems
+\item zeigt wann sinnvoll einsetzbar
+\item typische Einsatzbereiche
+\item Vor- \& Nachteile
+\end{itemize}
+
+\begin{figure}[H]
+\begin{minipage}[t]{.5\textwidth}
+\centering
+\includegraphics[scale=.3]{pictures/mvc1.png}
+\caption{Struktur von MVC}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.5\textwidth}
+\centering
+\includegraphics[scale=.25]{pictures/mvc2.png}
+\caption{Architektur einer Webanwendung mit MVC-Muster}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Schichtenarchitektur}
+
+\begin{itemize}
+\item System in hierarchische Schichten gegliedert
+\item jede Schicht nutzt darunterliegende
+\item Einsatz: neue Funktionen für vorhandenes System, mehrere Teams parallel, mehrstufige Sicherheit
+\item Vorteile: gute Wartbarkeit, Austauschbarkeit, Portierbarkeit
+\item Nachteile: Performanceprobleme, saubere Trennung oft schwierig
+\end{itemize}
+
+\begin{figure}[H]
+\begin{minipage}[t]{.5\textwidth}
+\centering
+\includegraphics[scale=.3]{pictures/schichtarch1.png}
+\caption{allgemeine Schichtarchitektur}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.5\textwidth}
+\centering
+\includegraphics[scale=.25]{pictures/schichtarch2.png}
+\caption{Architektur iLearn-System}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Repository-Architektur}
+
+\begin{itemize}
+\item zentrale Datenbasis, auf die alle Komponenten zugreifen
+\item Komponenten kommnunizieren nicht direkt miteinander
+\item Einsatz: große Datanmengen, langfristige Speicherung; z.B. Management-Informationssysteme, CAD-Systeme, IDEs
+\item Vorteile: konsistente Daten, lose Kopplung
+\item Nachteile: Single Point of Failure, Skalierungsprobleme
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/repoarch.png}
+\caption{IDE Repo-Architektur}
+\end{figure}
+
+\subsubsection{Client-Server-Architektur}
+
+\begin{itemize}
+\item typisch für verteilte Systeme
+\item Kommunikation über eine Netzwerk (z.B: HTTP)
+\item Einsatz: gemeinsamer Datenzugriff von vielen Orten, variable Auslastung, Webanwendungen, Netzwerksysteme
+\item Vorteile: gute Skalierbarkeit, zentrale Dienste
+\item Nachteile: Serverausfall kritisch, netzabhängige Performance
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/csa.png}
+\caption{Client-Server-Architektur einer Filmbibliothek}
+\end{figure}
+
+\subsubsection{Pipes-\&-Filter-Architektur}
+
+\begin{itemize}
+\item Daten fließen durch eine Kette von Verarbeitungsschritten
+\item Jeder Filter transformiert die Daten
+\item Einsatz: Datenverarbeitungssysteme, Stapelverarbeitung, geringe Benutzerinteraktion; z.B. Abrechnungssysteme, Compiler
+\item Vorteile: einfache Erweiterung, Wiederverwendbarkeit
+\item Nachteile: starre Datenformate, ungeeignet für interaktive Systeme
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/pfa.png}
+\caption{Bsp. Pipes-\&-Filter-Architektur}
+\end{figure}
+
 \newpage
 \bibliography{sources}
 \nocite{*}
