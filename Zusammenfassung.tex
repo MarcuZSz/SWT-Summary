@@ -1456,6 +1456,81 @@ Bsp: Szenario zum Hochladen und Moderieren von Fotos
 \caption{Bsp. Pipes-\&-Filter-Architektur}
 \end{figure}
 
+\section{Design Patterns}
+
+\subsection{Was ist eine Design Pattern?}
+
+bewährtes Lösungsmuster für wiederkehrende Designprobleme in der Softwareentwicklung
+
+\begin{enumerate}
+\item Pattern-Name: prägnanter Name zur Referenzierung \& für bessere Kommunikation zw. Entwicklern
+\item Problemstellung: Situation, in der das Pattern anwendbar ist, inklusive Kontext \& Bedingungen
+\item Lösung: abstrakte Beschreibung der Anordnung von Klassen \& Objekten, keine konkrete Implementierung
+\item Konsequenzen: Auswirkungen \& Kompromisse bei der Anwendung
+\end{enumerate}
+
+\subsection{Beschreibung der Design Patterns}
+
+\begin{itemize}
+\item \textbf{Pattern-Name \& Klassifizierung} \\
+Bezeichnung \& Kategorisierung des Patterns
+\item \textbf{Zweck} \\
+Was bewirkt das Pattern und auf welche Designfragen antwortet es
+\item \textbf{Auch bekannt als} \\
+Alternative Bezeichnungen
+\item \textbf{Motivation} \\
+Beispielszenario, das die Problemlösung veranschaulicht
+\item \textbf{Anwendbarkeit} \\
+Situationen, in denen das Pattern sinnvoll einsetzbar ist
+\item \textbf{Struktur} \\
+Grafische Darstellung der Klassen \& Objekte (OMT-Notation)
+\item \textbf{Teilnehmer} \\
+Beteiligte Klassen/Objekte \& ihre Zuständigkeiten
+\item \textbf{Interaktionen} \\
+Art der Zusammenarbeit zw. den Teilnehmern
+\item \textbf{Konsequenzen} \\
+Vor- \& Nachteile, Auswirkungen auf die Systemstruktur
+\item \textbf{Implementierung} \\
+Tipps, Techniken, sprachspezifische Überlegungen
+\item \textbf{Codebeispiele} \\
+Implementierungen in C oder Smalltalk
+\item \textbf{Praxisbeispiele} \\
+min. zwei reale Anwendungsbeispiele
+\item \textbf{Verwandte Patterns} \\
+Beziehungen zu anderen Patterns
+\end{itemize}
+
+\subsection{Der Desgin-Patterns-Katalog}
+
+enthält 23 Design Patterns, gruppiert nach Zweck \& Gültigkeitsbereich:
+\begin{itemize}
+\item Erzeugungsmuster (Creational): Abstract Factory, Builder, Factory Method, Prototype, Singleton
+\item Strukturmuster (Structural): Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy
+\item Verhaltensmuster (Behavioral): Chain of Responsibility, Command, Interpreter, Iterator, Mediator, Memento, Observer, State, Strategy, Template Method, Visitor
+\end{itemize}
+
+\subsection{Aufbau des Katalogs}
+
+\begin{enumerate}
+\item Zweck (was das Pattern bewirkt):
+\begin{itemize}
+\item Erzeugungsmuster: Objekterzeugungsprozess
+\item Strukturmuster: Zusammensetzung von Klassen \& Objekten
+\item Verhaltensmuster: Interaktion von Klassen/Objekten \& Verteilung der Zuständigkeiten
+\end{itemize}
+\item Gültigkeitsbereich (wo das Pattern wirkt):
+\begin{itemize}
+\item Klassenbasiert: Beeinflussen Vererbungsbeziehungen (statisch beim Kompilieren)
+\item Objektbasiert: Beeinflussen Objektbeziehungen (dynamisch zur Laufzeit)
+\end{itemize}
+\item Zusätzliche Klassifizierung nach verwandtschaftlichen Beziehungen:
+\begin{itemize}
+\item Patterns, die zusammen verwendet werden (z.B. Composite + Iterator)
+\item Patterns, die sich gegenseitig ersetzen (z.B. Prototype vs. Abstract Factory)
+\item Patterns mit ähnlichen Strukturen aber unterschiedlichen Zwecken (z.B. Composite vs. Decorator)
+\end{itemize}
+\end{enumerate}
+
 \newpage
 \bibliography{sources}
 \nocite{*}
