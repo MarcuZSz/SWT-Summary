@@ -1531,6 +1531,175 @@ enthält 23 Design Patterns, gruppiert nach Zweck \& Gültigkeitsbereich:
 \end{itemize}
 \end{enumerate}
 
+\section{Testen \& Softwarequalität}
+
+\subsection{Entwicklertests}
+
+\begin{enumerate}
+\item Modultests
+\begin{itemize}
+\item Testen einzelner Programmeinheiten, Methoden oder Objektklassen
+\item Fokus auf Fonktionalität von Objekten/Methoden
+\end{itemize}
+\item Komponententests
+\begin{itemize}
+\item Intregration mehrerer Einheiten zu zsmgesetzten Komponenten
+\item Fokus auf Testen der Komponentenschnittstellen
+\end{itemize}
+\item Systemtests
+\begin{itemize}
+\item Integration von Komponenten, System als Ganzes
+\item Testen der Interaktionen zw. Komponenten
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Modultests}
+
+\begin{enumerate}
+\item Aufbau: Initilisierung mit Testfällen
+\item Aufruf: Aufrufen der zu testenden Methoden
+\item Bewertung: Vergleich mit erwarteten Ergebnissen
+\end{enumerate}
+
+\subsubsection{Auswahl der Testfälle für Modultests}
+
+\textbf{Ziel:} effiziente Testfälle erstellen, möglichst viele Fehler bei möglichst wenig Aufwand finden
+
+\begin{enumerate}
+\item Klassenbasierte Tests (Äquivalenzklassen)
+\begin{itemize}
+\item Eingaben/Ausgaben nach gemeinsamen Eigenschaften gruppieren („Äquivalenzklassen“)
+\item Pro Klasse wenige repräsentative Testfälle wählen
+\item Wichtig: Immer Grenzwerte testen! (z. B. min, max, genau min-1, max+1)
+\item Bsp: Eingabe 10.000–99.999 $\rightarrow$ Teste 9.999, 10.000, 50.000, 99.999, 100.000
+\item Blackbox-Testing: Nur Spezifikation/Dokumentation nötig, kein Code-Inhalt
+\end{itemize}
+\item Richtlinienbasierte Tests
+\begin{itemize}
+\item Einzelwert-Folgen testen (Programmierer denken oft an "mehrere Elemente")
+\item Verschiedene Folgengrößen (klein/mittel/groß)  
+\item Erste/mittlere/letzte Elemente einer Liste/Folge
+\item Eingaben, die Fehlermeldungen auslösen
+\item Pufferüberläufe provozieren
+\item Ungültige Ausgaben erzwingen
+\item Berechnungen mit zu groß/klein Ergebnissen
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Testen von Komponenten}
+
+\begin{itemize}
+\item testen zusammengesetzte Komponenten, die aus mehreren Objekten/Modulen bestehen
+\item finden nach Modultests \& vor Systemtests statt
+\item Fokus: Verhalten der Komponentenschnittstellen, nicht der einzelnen Methoden im Inneren
+\item Ziel: Interaktionsfehler zwischen den intern beteiligten Objekten aufdecken
+\item Schnittstellentypen:
+\begin{itemize}
+\item Parameterschnittstellen (Daten/Funktionsreferenzen werden übergeben)
+\item Schnittstellen mit gemeinsamem Speicher (mehrere Komponenten greifen auf denselben Speicher zu)
+\item Weitere Schnittstellenformen (z. B. prozedurale)
+\end{itemize}
+\item Fehler oft durch falsche Parameter, falsche Reihenfolgen von Aufrufen oder Nebenwirkungen über geteilten Speicher
+\item Testfälle gegen die äußere Schnittstelle der gesamten Komponente definiert, nicht gegen die Einzelteile
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/sst.png}
+\caption{Schnittstellentests}
+\end{figure}
+
+\subsubsection{Testen von Systemen}
+
+\begin{itemize}
+\item Nach Komponententests mehrere oder alle Komponenten zu einem kompletten System integriert \& als Ganzes getestet
+\item Fokus: Interaktionen zw Komponenten \& das Verhalten des Gesamtsystems aus Sicht der Anforderungen
+\item Ziel: Zeigen, dass das System als Ganzes die spezifizierten Funktionen korrekt bereitstellt
+\item Systemtests prüfen auch nicht-funktionale Eigenschaften (z. B. Performance, Verhalten unter Last)
+\end{itemize}
+
+\subsection{Testgetriebene Entwicklung}
+
+\begin{itemize}
+\item Indentifizierung geforderter Funktionalität
+\item Test für Funktionalität schreiben \& implementieren als Automatisierten; wird ausgeführt \& protokolliert, ob bestanden oder nicht
+\item Test mit allen anderen Test ausführen
+\item ggf. muss Code angepasst werden
+\item Alle Tests erfolgreich, weitere schreiben
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/tdd.png}
+\caption{Testgetriebene Entwicklung}
+\end{figure}
+
+\begin{itemize}
+\item Codeabdeckung: jedes Codesegment soll min. 1 dazugehörigen Test haben; frühe Erkennung von Fehlern
+\item Regressionstest: Testsuite inkrementell entwickelt; prüft, dass neuer Code keine Fehler einführt
+\item vereinfachtes Fehlerbeheben: neugeschriebenen Code überprüfen \& modifizieren
+\item Systemdokumentation: Tests als eine Art von Docs
+\end{itemize}
+
+\subsection{Eigenschaften der Verlässlichkeit}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{pictures/eigver.png}
+\caption{Hauptpfeiler der Verlässlichkeit}
+\end{figure}
+
+\noindent
+\textbf{Weitere Eigenschaften die Verlässlichkeit beeinflussen}
+\begin{itemize}
+\item Reparaturfähigkeit: schnelle Wiederherstellung nach Ausfällen
+\item Wartbarkeit: leichte Anpassung an neue Anforderungen
+\item Fehlertoleranz: Erkennung \& Behandlung von Benutzerfehlern
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/kvk.png}
+\caption{Kosten-/Verlässlichkeitskurve}
+\end{figure}
+
+\subsection{Soziotechnische Systeme}
+
+\begin{itemize}
+\item Geräteschicht: Hardwaregeräte, teilweise auch Computer
+\item Betriebssystemschicht: Interaktion mit der Hardware; stellt grundlegende Funktionen für höhere Schichten bereit
+\item Kommunikations- \& Datenverwaltungsschicht (Middleware): Erweitert OS-Funktionen; ermöglicht z. B. Zugriff auf entfernte Systeme \& Datenbanken
+\item Anwendungsschicht: Stellt anwendungsspezifische Funktionen bereit; mehrere Anwendungen möglich
+\item Geschäftsprozessschicht: Umfasst unternehmensspezifische Geschäftsprozesse, die das System nutzen
+\item Unternehmensschicht: Beinhaltet strategische Prozesse, Geschäftsregeln, -richtlinien und -standards
+\item Gesellschaftsschicht: Umfasst gesetzliche \& regulatorische Vorgaben für den Systemeinsatz
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{pictures/soziosys.png}
+\caption{Schichten eines soziotechnischen Systems}
+\end{figure}
+
+\noindent
+\textbf{Konsequenzen für Entwickler bei Fehler in einer Schicht}
+\begin{itemize}
+\item Ganzheitliche Systembetrachtung notwendig
+\item Verstehen, wie Softwareausfälle andere Systemteile beeinflussen
+\item Grenzen von Softwarefehlern definieren, um Gesamtsystemausfälle zu vermeiden
+\item Sicherstellen, dass Tests auch Ausfälle in anderen Schichten erkennen
+\end{itemize}
+
+\subsubsection{Regulierung \& Einhaltung der Vorschriften}
+
+Regierungen regeln kritische Systeme durch
+\begin{itemize}
+\item Standards für Betriebssicherheit \& Informationssicherheit
+\item Lizenzierungsbehörden (z.B. Luftfahrt, Atomkraft)
+\item Forderung nach umfangreichen Sicherheitsnachweisen
+\item Teuer: Zertifizierungsdokumentation kann so teuer wie das System selbst sein
+\end{itemize}
+
 \newpage
 \bibliography{sources}
 \nocite{*}
